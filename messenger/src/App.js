@@ -3,12 +3,14 @@ import {BrowserRouter as Router,Route} from 'react-router-dom'
 import HomePage from './Containners/homePage/homePage'
 import LoginPage from './Containners/loginPage/loginPage'
 import RegisterPage from './Containners/registerPage/registerPage'
+import PrivateRouter from './Components/privateRouter'
+
 
 function App() {
   return (
      <div >
        <Router>
-        <Route path='/' exact component={HomePage}></Route>
+        <PrivateRouter path='/abc' exact component={HomePage}></PrivateRouter>
          <Route path='/login' component={LoginPage}></Route>
          <Route path='/signup' component={RegisterPage}></Route>
        </Router>
