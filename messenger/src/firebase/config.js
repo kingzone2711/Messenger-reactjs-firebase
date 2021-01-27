@@ -28,9 +28,9 @@ class Firebase {
         return user;
     }
 
-    async signup(email, password) {
-        const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        return user;
+    async signup(user) {
+        const posts = await firebase.auth().createUserWithEmailAndPassword(user.email,user.password);
+        return posts;
     }
 
     async logout() {
@@ -50,11 +50,10 @@ class Firebase {
         return posts;
     }
     async setCollectionUsersIsonline(data){
-        console.log(data.user.uid)
         const posts = await firebase.firestore().collection("users")
         .doc(data.user.uid)
-        .update({
-            isOnline: false
+        .set({
+                isOnline: true
         })
         return posts;
     }
