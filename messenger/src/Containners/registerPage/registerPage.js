@@ -49,7 +49,7 @@ function RegisterPage() {
     }
     dispatch({type: "USER_LOGIN_REQUEST"});
     config.signup(user).then(data => {
-      const currentUser = firebase.auth().currentUser;
+      const currentUser = config.currentuser().currentUser;
       const name = `${user.firstName} ${user.lastName}`;
         currentUser.updateProfile({
           displayName: name
@@ -85,7 +85,7 @@ function RegisterPage() {
   }
 
   return (
-    <Layout>
+    
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -154,7 +154,7 @@ function RegisterPage() {
           </form>
         </div>
       </Container>
-    </Layout>
+    
   )
 }
 export default RegisterPage

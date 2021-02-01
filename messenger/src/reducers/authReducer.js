@@ -19,11 +19,16 @@ export const firebaseAuth = (state, action) => {
         case "USER_LOGOUT_REQUEST":
             break;
 
-        // case "USER_LOGOUT_SUCCESS":
-        //     state = {
-        //         ...initState
-        //     }
-        //     break;
+        case "USER_LOGOUT_SUCCESS":
+            state = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                authenticating: false,
+                authenticated: false,
+                error: null
+            }
+            return state;
             
         case "USER_LOGOUT_FAIL":
             state = {

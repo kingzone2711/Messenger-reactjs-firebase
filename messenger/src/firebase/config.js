@@ -49,13 +49,24 @@ class Firebase {
             });
         return posts;
     }
-    async setCollectionUsersIsonline(data){
+    async setCollectionUsersIsonline(data) {
+        const name = data.user.displayName.split(" ");
+        const firstName = name[0];
+        const lastName = name[1];
         const posts = await firebase.firestore().collection("users")
-        .doc(data.user.uid)
-        .set({
+            .doc(data.user.uid)
+            .update({
+                firstName: firstName,
+                lastName: lastName,
+                uid: data.user.uid,
+                createdAt: new Date(),
                 isOnline: true
-        })
+            })
         return posts;
+    }
+    
+     currentuser(){
+        return firebase.auth();
     }
 }
 export default new Firebase()

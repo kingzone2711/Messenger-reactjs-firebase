@@ -5,13 +5,16 @@ import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import store from './store/index'
 import { AuthProvider } from "./context/authContext";
+import { UserProvider } from "./context/userContext";
 window.store=store
 ReactDOM.render(
   
   <Provider store={store}>
     <React.StrictMode>
     <AuthProvider>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
       </AuthProvider>
     </React.StrictMode>
   </Provider>,

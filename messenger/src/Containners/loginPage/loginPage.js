@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container';
 import Layout from '../../Components/layout/layout';
 import config from "../../firebase/config";
 import { Auth } from "../../context/authContext";
+
 import { Redirect } from 'react-router-dom';
 const usestyles = makeStyles((theme) => ({
   paper: {
@@ -40,7 +41,7 @@ function Loginpage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { state, dispatch } = React.useContext(Auth);
- 
+  
   const userlogin = (e) => {
     e.preventDefault();
 
@@ -57,7 +58,6 @@ function Loginpage() {
     });
     config.login(email, password).then(data => {
       config.setCollectionUsersIsonline(data).then(() => {
-      
         const name = data.user.displayName.split(" ");
         const firstName = name[0];
         const lastName = name[1];
@@ -88,7 +88,7 @@ function Loginpage() {
   }
 
   return (
-    <Layout>
+   
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -151,7 +151,7 @@ function Loginpage() {
           </form>
         </div>
       </Container>
-    </Layout>
+   
   )
 }
 export default Loginpage

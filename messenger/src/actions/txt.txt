@@ -1,0 +1,23 @@
+`when i create a field on firebase and then firebase create a new field with auto id ,when i update firebase create a new field differnce with id using uid, i would like create and update on the same field .please help! 
+i just want update i field isonline but it add a new field, im using set function then no still like that`
+```
+  async setCollectionUsers(data, user) {
+        const posts = await firebase.firestore().collection("users")
+            .add({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                uid: data.user.uid,
+                createdAt: new Date(),
+                isOnline: true
+            });
+        return posts;
+    }
+    async setCollectionUsersIsonline(data) {
+        const posts = await firebase.firestore().collection("users")
+            .doc(data.user.uid)
+            .update({
+                isOnline: true
+            })
+        return posts;
+    }
+```
