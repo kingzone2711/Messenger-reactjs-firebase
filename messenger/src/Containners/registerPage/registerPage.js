@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Layout from '../../Components/layout/layout';
+// import Layout from '../../Components/layout/layout';
 import config from "../../firebase/config";
 import { Auth } from "../../context/authContext";
 import { Redirect } from 'react-router-dom';
